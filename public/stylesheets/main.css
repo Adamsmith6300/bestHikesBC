@@ -13,3 +13,9 @@
 #delete-form {
     display: inline;
 }
+
+#back-campgrounds {
+    border-left: none;
+    border-bottom: none;
+    border-right: none;
+}
