@@ -1,0 +1,46 @@
+<% include ../partials/header %>
+
+
+<div id="home-content" class="container">
+
+          <div>
+                <h1 class="text-center"><span class="glyphicon glyphicon-tree-conifer" aria-hidden="true"></span>Explore Beautiful BC!</h1>
+                    <hr>
+                    <p class="text-center space">
+                        <a id="new-hike-btn" class="btn btn-primary" href="/hikes/new">
+                          Add a new hike
+                          <span class="glyphicon glyphicon-plus"></span>
+                        </a>
+                    </p>
+          </div>
+
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h3>Our Most Popular Hikes!</h3>
+        </div>
+    </div>
+
+
+    <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        <% hikes.forEach(function(hike){ %>
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <img id="index-images" class="img-thumbnail" src="<%= hike.image %>">
+                <div class="caption">
+                    <h4> <%= hike.name; %> </h4>
+                </div>
+                <p class="more-info">
+                    <a class="btn btn-primary" href="/hikes/<%= hike._id %>">More info</a>
+                </p>
+            </div>
+        </div>
+        <% }); %>
+    </div>
+</div>
+
+<ul class="slideshow">
+      <li></li>
+</ul>
+
+<% include ../partials/footer %>

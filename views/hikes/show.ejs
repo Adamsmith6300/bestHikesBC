@@ -1,0 +1,84 @@
+<% include ../partials/header %>
+
+<div id="hike-content" class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <h3 class="lead">Details</h3>
+            <div class="list-group">
+                <li class="list-group-item"><h4><strong>Duration:</strong> <%= hike.duration %> hours</h4></li>
+                <li class="list-group-item"><h4><strong>Length:</strong> <%= hike.length %> kilometers</h4></li>
+                <li class="list-group-item"><h4><strong>Elevation:</strong> <%= hike.elevation %> meters</h4></li>
+                <li class="list-group-item"><h4><strong>Difficulty:</strong> <%= hike.difficulty %></h4></li>
+            </div>
+            <div id="back-hikes">
+              <a href="/hikes">Back to Hikes</a>
+            </div>
+            <div class="space">
+                <iframe
+                    title="GoogleMaps"
+                    width="100%"
+                    height="260"
+                    frameborder="0"
+                    scrolling="no"
+                    marginheight="0"
+                    marginwidth="0"
+                    src="https://maps.google.com/maps?q=<%= hike.location %>&amp;z=11&amp;output=embed">
+                </iframe>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="thumbnail">
+                <img class="img-responsive img-thumbnail" src="<%=hike.image%>">
+                <div class="caption-full">
+                    <h2 class="text-center"><a><%=hike.name%></a></h2>
+                    <h3>Description:</h3>
+                    <p><%- hike.description %></p>
+                    <h3>Directions:</h3>
+                    <p><%- hike.directions %></p>
+                    <h3>Amenities:</h3>
+                    <p><%- hike.amenities %></p>
+                    <p>
+                        <em>Submitted by <%= hike.author.username %></em>
+                    </p>
+                    <% if(currentUser && hike.author.id.equals(currentUser._id)){ %>
+                    <a class="btn btn-warning" href="/hikes/<%= hike._id %>/edit">Edit</a>
+                    <form id="delete-form" action="/hikes/<%= hike._id %>?_method=DELETE" method="POST">
+                        <button class="btn btn-danger">Delete</button>
+                    </form>
+                    <% } %>
+                </div>
+            </div>
+            <div class="well">
+                <div class="text-right">
+                    <a class="btn btn-success" href="/hikes/<%= hike._id %>/comments/new">Leave a Review</a>
+                </div>
+                <hr>
+                <% hike.comments.forEach(function(comment){ %>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <%= comment.author.username %>
+                            <span class="pull-right">10 days ago</span>
+                            <p>
+                                <%= comment.text %>
+                            </p>
+                            <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+                            <a class="btn btn-warning" href="/hikes/<%= hike._id %>/comments/<%= comment._id %>/edit">
+                                Edit
+                            </a>
+                            <form id="delete-form" action="/hikes/<%= hike._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                                <button class="btn btn-danger">Delete</button>
+                            </form>
+                            <% } %>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ul class="slideshow">
+      <li></li>
+</ul>
+
+<% include ../partials/footer %>

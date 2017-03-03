@@ -5,7 +5,7 @@
     <div class="row">
         <h1 style="text-align: center;">Edit Comment for </h1>
         <div style="width: 30%; margin: 25px auto;">
-            <form action="/campgrounds/<%= campground_id %>/comments/<%= comment._id %>?_method=PUT" method="POST">
+            <form action="/hikes/<%= hike_id %>/comments/<%= comment._id %>?_method=PUT" method="POST">
                 <div class="form-group">
                     <input class="form-control" type="text" name="comment[text]" value="<%= comment.text %>">
                 </div>
@@ -13,7 +13,7 @@
                     <button class="btn btn-large btn-primary btn-block">Submit!</button>
                 </div>
             </form>
-            <a href="/campgrounds/<%= campground_id %>">Go back</a>
+            <a href="/hikes/<%= hike_id %>">Go back</a>
         </div>
     </div>
 </div>

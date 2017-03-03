@@ -1,14 +1,14 @@
 var middlewareObj = {};
-var Campground = require("../models/campground");
+var Hike = require("../models/hike");
 var Comment = require("../models/comment");
 
-middlewareObj.checkCampgroundOwnership = function(req, res, next){
+middlewareObj.checkHikeOwnership = function(req, res, next){
     if(req.isAuthenticated()){
-        Campground.findById(req.params.id, function(err, foundCampground){
+        Hike.findById(req.params.id, function(err, foundHike){
             if(err){
-                res.redirect("/campgrounds");
+                res.redirect("/hikes");
             } else {
-                if(foundCampground.author.id.equals(req.user._id)){
+                if(foundHike.author.id.equals(req.user._id)){
                     next();
                 } else {
                     req.flash("error", "You don't have permission to do that!");
@@ -16,7 +16,7 @@ middlewareObj.checkCampgroundOwnership = function(req, res, next){
                 }
             }
         });
-        
+
     } else {
         req.flash("error", "You need to be logged in to do that!");
         res.redirect("back");
@@ -37,7 +37,7 @@ middlewareObj.checkCommentOwnership = function(req, res, next){
                 }
             }
         });
-        
+
     } else {
         req.flash("error", "You need to be logged in to do that!");
         res.redirect("back");

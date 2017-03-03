@@ -1,27 +1,28 @@
 var express= require("express");
 var router = express.Router({mergeParams: true});
-var Campground = require("../models/campground");
+var Hike = require("../models/hike");
 var Comment = require("../models/comment");
 var middleware = require("../middleware");
 
 // show create new comment page
 router.get("/new", middleware.isLoggedIn, function(req, res){
-   Campground.findById(req.params.id, function(err, campground){
+   Hike.findById(req.params.id, function(err, hike){
        if(err){
            console.log(err);
        } else {
-           res.render("comments/new", {campground: campground});   
+           res.render("comments/new", {hike: hike});
        }
    });
 });
 
 // create new comment request
 router.post("/", middleware.isLoggedIn, function(req, res){
-    Campground.findById(req.params.id, function(err, campground){
+    Hike.findById(req.params.id, function(err, hike){
         if (err){
             console.log(err);
-            res.redirect("/campgrounds");
+            res.redirect("/hikes");
         } else {
+            req.body.comment.body = req.sanitize(req.body.comment.body);
             Comment.create(req.body.comment, function(err, comment){
                 if(err){
                     console.log(err);
@@ -30,10 +31,10 @@ router.post("/", middleware.isLoggedIn, function(req, res){
                     comment.author.id = req.user.id;
                     comment.author.username = req.user.username;
                     comment.save();
-                    campground.comments.push(comment);
-                    campground.save();
+                    hike.comments.push(comment);
+                    hike.save();
                     req.flash("success", "Successfully added comment!");
-                    res.redirect("/campgrounds/" + campground._id);
+                    res.redirect("/hikes/" + hike._id);
                 }
             });
         }
@@ -46,18 +47,19 @@ router.get("/:comment_id/edit", middleware.checkCommentOwnership, function (req,
         if(err){
             res.redirect("back");
         } else {
-            res.render("comments/edit", {comment: foundComment, campground_id: req.params.id});
+            res.render("comments/edit", {comment: foundComment, hike_id: req.params.id});
         }
     });
 });
 
 // update comment
 router.put("/:comment_id", middleware.checkCommentOwnership, function(req, res){
+    req.body.comment.body = req.sanitize(req.body.comment.body);
     Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment, function(err, updatedComment){
         if(err){
             res.redirect("back");
         } else {
-            res.redirect("/campgrounds/" + req.params.id);
+            res.redirect("/hikes/" + req.params.id);
         }
     });
 });
@@ -66,10 +68,10 @@ router.put("/:comment_id", middleware.checkCommentOwnership, function(req, res){
 router.delete("/:comment_id", middleware.checkCommentOwnership, function(req, res){
     Comment.findByIdAndRemove(req.params.comment_id, function(err){
         if(err){
-            res.redirect("/campgrounds/" + req.params.id);
+            res.redirect("/hikes/" + req.params.id);
         } else {
             req.flash("success", "Comment deleted");
-            res.redirect("/campgrounds/" + req.params.id);
+            res.redirect("/hikes/" + req.params.id);
         }
     });
 });
