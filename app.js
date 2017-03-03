@@ -51,6 +51,6 @@ app.use("/hikes/:id/comments", commentRoutes);
 app.use("/hikes", hikeRoutes);
 app.use(indexRoutes);
 
-app.listen(3000, function(){
+app.listen(process.env.PORT || 3000, function(){
     console.log("Server running properly...");
 });
