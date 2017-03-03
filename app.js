@@ -17,9 +17,9 @@ var commentRoutes       = require("./routes/comments"),
     hikeRoutes          = require("./routes/hikes"),
     indexRoutes         = require("./routes/index");
 
-var url = "mongodb://localhost/best_hikes_bc" || DATABASEURL
+var url =  DATABASEURL || "mongodb://localhost/best_hikes_bc"
 mongoose.connect(url);
-// mongoose.connect("mongodb://Adamsmith6300:Adam5561@ds023510.mlab.com:23510/yelpcamp");
+// mongoose.connect("mongodb://Adamsmith6300:Adam5561@ds053774.mlab.com:53774/best_hikes_bc");
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
