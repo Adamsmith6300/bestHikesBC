@@ -17,7 +17,8 @@ var commentRoutes       = require("./routes/comments"),
     hikeRoutes          = require("./routes/hikes"),
     indexRoutes         = require("./routes/index");
 
-var url =  DATABASEURL || "mongodb://localhost/best_hikes_bc"
+var url =  DATABASEURL
+// || "mongodb://localhost/best_hikes_bc"
 mongoose.connect(url);
 // mongoose.connect("mongodb://Adamsmith6300:Adam5561@ds053774.mlab.com:53774/best_hikes_bc");
 
