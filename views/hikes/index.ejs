@@ -1,45 +1,178 @@
 <% include ../partials/header %>
 
-
-<div id="home-content" class="container">
-
-          <div>
-                <h1 class="text-center"><span class="glyphicon glyphicon-tree-conifer" aria-hidden="true"></span>Explore Beautiful BC!</h1>
-                    <hr>
-                    <p class="text-center space">
-                        <a id="new-hike-btn" class="btn btn-primary" href="/hikes/new">
-                          Add a new hike
-                          <span class="glyphicon glyphicon-plus"></span>
-                        </a>
-                    </p>
-          </div>
-
-
-    <div class="row">
+<div class="home content container">
+    <div class="row region">
         <div class="col-lg-12">
-            <h3>Our Most Popular Hikes!</h3>
+            <h3>Vancouver Coast & Mountains</h3>
         </div>
     </div>
-
 
     <div class="row text-center" style="display:flex; flex-wrap: wrap;">
         <% hikes.forEach(function(hike){ %>
+        <% if(hike.region === "Vancouver Coast & Mountains"){ %>
         <div class="col-sm-6 col-md-3">
-            <div class="thumbnail">
-                <img id="index-images" class="img-thumbnail" src="<%= hike.image %>">
+            <a href="/hikes/<%= hike._id %>">
+              <div class="thumbnail">
+                <img class="home-images" src="<%= hike.image %>">
                 <div class="caption">
-                    <h4> <%= hike.name; %> </h4>
+                  <h4> <%= hike.name; %> </h4>
                 </div>
-                <p class="more-info">
-                    <a class="btn btn-primary" href="/hikes/<%= hike._id %>">More info</a>
-                </p>
-            </div>
+              </div>
+            </a>
         </div>
+        <% } else {} %>
         <% }); %>
     </div>
+
+    <div id="VancouverIsland">
+      <hr class="home-hr">
+    </div>
+
+    <div class="row region">
+        <div class="col-lg-12">
+            <h3>Vancouver Island</h3>
+        </div>
+    </div>
+
+    <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        <% hikes.forEach(function(hike){ %>
+        <% if(hike.region === "Vancouver Island"){ %>
+        <div class="col-sm-6 col-md-3">
+            <div>
+              <a href="/hikes/<%= hike._id %>">
+                <div class="thumbnail">
+                  <img class="home-images" src="<%= hike.image %>">
+                  <div class="caption">
+                    <h4> <%= hike.name; %> </h4>
+                  </div>
+                </div>
+              </a>
+            </div>
+        </div>
+        <% } else {} %>
+        <% }); %>
+    </div>
+
+    <div id="ThompsonOkanagan">
+      <hr class="home-hr">
+    </div>
+
+    <div class="row region">
+        <div class="col-lg-12">
+            <h3>Thompson Okanagan</h3>
+        </div>
+    </div>
+
+    <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        <% hikes.forEach(function(hike){ %>
+        <% if(hike.region === "Thompson Okanagan"){ %>
+        <div class="col-sm-6 col-md-3">
+            <div>
+              <a href="/hikes/<%= hike._id %>">
+                <div class="thumbnail">
+                  <img class="home-images" src="<%= hike.image %>">
+                  <div class="caption">
+                    <h4> <%= hike.name; %> </h4>
+                  </div>
+                </div>
+              </a>
+            </div>
+        </div>
+        <% } else {} %>
+        <% }); %>
+    </div>
+
+    <div id="CaribooChilcotin">
+      <hr class="home-hr">
+    </div>
+
+    <div class="row region">
+        <div class="col-lg-12">
+            <h3>Cariboo Chilcotin Coast</h3>
+        </div>
+    </div>
+
+    <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        <% hikes.forEach(function(hike){ %>
+        <% if(hike.region === "Cariboo Chilcotin Coast"){ %>
+        <div class="col-sm-6 col-md-3">
+            <div>
+              <a href="/hikes/<%= hike._id %>">
+                <div class="thumbnail">
+                  <img class="home-images" src="<%= hike.image %>">
+                  <div class="caption">
+                    <h4> <%= hike.name; %> </h4>
+                  </div>
+                </div>
+              </a>
+            </div>
+        </div>
+        <% } else {} %>
+        <% }); %>
+    </div>
+
+    <div id="KootenayRockies">
+      <hr class="home-hr">
+    </div>
+
+    <div class="row region">
+        <div class="col-lg-12">
+            <h3>Kootenay Rockies</h3>
+        </div>
+    </div>
+
+    <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        <% hikes.forEach(function(hike){ %>
+        <% if(hike.region === "Kootenay Rockies"){ %>
+        <div class="col-sm-6 col-md-3">
+            <div>
+              <a href="/hikes/<%= hike._id %>">
+                <div class="thumbnail">
+                  <img class="home-images" src="<%= hike.image %>">
+                  <div class="caption">
+                    <h4> <%= hike.name; %> </h4>
+                  </div>
+                </div>
+              </a>
+            </div>
+        </div>
+        <% } else {} %>
+        <% }); %>
+    </div>
+
+    <div id="NorthernBC">
+      <hr class="home-hr">
+    </div>
+
+    <div  class="row region">
+        <div class="col-lg-12">
+            <h3>Northern BC</h3>
+        </div>
+    </div>
+
+    <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        <% hikes.forEach(function(hike){ %>
+        <% if(hike.region === "Northern BC"){ %>
+        <div class="col-sm-6 col-md-3">
+            <div>
+              <a href="/hikes/<%= hike._id %>">
+                <div class="thumbnail">
+                  <img class="home-images" src="<%= hike.image %>">
+                  <div class="caption">
+                    <h4> <%= hike.name; %> </h4>
+                  </div>
+                </div>
+              </a>
+            </div>
+        </div>
+        <% } else {} %>
+        <% }); %>
+    </div>
+
 </div>
 
-<ul class="slideshow">
+
+<ul class="background">
       <li></li>
 </ul>
 

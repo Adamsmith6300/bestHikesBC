@@ -1,146 +1,150 @@
-
+/****************/
 /*background*/
-.slideshow {
+/***************/
+.background {
   position: fixed;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
-  z-index: 0;
+  z-index: -1;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.slideshow li {
+.background li {
   width: 100%;
   height: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  background-image: url(http://i.imgur.com/K3mPv14.jpg);
+  background-image: url("https://images.unsplash.com/photo-1432057322224-8916b9ed202a?dpr=1&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=");
   background-size: cover;
   background-position: 50% 50%;
   background-repeat: no-repeat;
-  opacity: 0.3;
-  z-index: -10;
+  opacity: 1;
+  z-index: -1;
 }
 
-/*.slideshow li:nth-child(1) {
-  background-image: url(http://i.imgur.com/K3mPv14.jpg)
-}*/
-/*.slideshow li:nth-child(2) {
-  background-image: url(http://i.imgur.com/SBEmFpv.jpg);
-  animation-delay: 10s;
-}
-.slideshow li:nth-child(3) {
-  background-image: url(http://i.imgur.com/emvhOnb.jpg);
-  animation-delay: 20s;
-}
-.slideshow li:nth-child(4) {
-  background-image: url(http://i.imgur.com/2LSMCmJ.jpg);
-  animation-delay: 30s;
-}
-.slideshow li:nth-child(5) {
-  background-image: url(http://i.imgur.com/TVGe0Ef.jpg);
-  animation-delay: 40s;
-}*/
-
-#home-content {
-  position: relative;
-  z-index: 1;
-}
-
-.glyphicon-tree-conifer {
-  margin-right: 25px;
-  font-size: 1.5em;
-}
-
-.jumbotron {
-  background-color: rgba(255,255,255,0.7);
-}
-
-hr {
-	width: 400px;
-	border-top: 1px solid #f8f8f8;
-	border-bottom: 1px solid rgba(0,0,0,0.2);
-}
-
-#home-content h1 {
-  font-size: 6.0em;
-  color: white;
-  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
-         0px 8px 13px rgba(0,0,0,0.1),
-         0px 18px 23px rgba(0,0,0,0.1);
-}
-
-#login-content {
-  position: relative;
-  z-index: 1;
-}
-
-div#login-content h1 {
-  color: white;
-}
-
-#signup-content {
-  position: relative;
-  z-index: 1;
-}
-
-div#signup-content h1 {
-  color: white;
-}
-
-#hike-content {
-  position: relative;
-  z-index: 1;
-}
-
-div#hike-content h1 {
-  color: white;
-}
-
-.hike-form {
-  width: 30%;
-  margin: 25px auto;
-}
-
+/********************/
+/*general styling*/
+/********************/
 body {
+    /*background-image: url("https://images.unsplash.com/photo-1486435286105-07c4f2698498?dpr=1&auto=format&fit=crop&w=1500&h=1125&q=80&cs=tinysrgb&crop=");*/
     background-color: #000;
+    margin: 90px auto;
+    font-family: "Comfortaa", cursive;
+    text-transform: uppercase;
 }
 
-#home-content h3 {
+h1 {
   color: white;
-  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+}
+
+h3 {
+  color: rgba(30, 30, 30, 1);
+  /*color: white;*/
+  /*text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
          0px 8px 13px rgba(0,0,0,0.1),
-         0px 18px 23px rgba(0,0,0,0.1);
+         0px 18px 23px rgba(0,0,0,0.1);*/
 }
 
-#hike-content .lead {
+a:hover {
+  text-decoration: none;
+}
+
+.navbar {
+  background-color: rgba(30, 30, 30, 1);
+}
+
+ul.nav.navbar-nav.navbar-right a:hover {
+  color: #777;
+}
+
+.navbar a.navbar-brand {
   color: white;
 }
 
-.thumbnail img {
-    width: 100%;
-    height: 600px;
+ul.nav.navbar-nav.navbar-right a {
+  color: white;
+}
+
+ul.nav.navbar-nav.navbar-right a.dropdown-item {
+  background-color: rgba(30, 30, 30, 1);
+  text-align: center;
+}
+
+div.dropdown-menu {
+  background-color: rgba(30, 30, 30, 1);
+  border: 1px solid rgba(30, 30, 30, 1);
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+}
+
+.btn {
+  border-radius: 4px;
+  background-color: rgba(23, 61, 115, 1);
+  border: none;
+  text-transform: uppercase;
 }
 
 .thumbnail {
     padding: 0;
     border: none;
+    border-radius: 4px;
+    background-color: rgba(30, 30, 30, 1);
+    color: white;
 }
 
-.thumbnail .caption-full {
-    padding: 9px;
+.regions-dropdown {
+  width: 160px;
+  text-align: center;
 }
 
-.btn {
+
+
+
+
+/******************************/
+/*home, show all hikes page (index)*/
+/******************************/
+.home-hr {
+  width: 1000px;
+	border: 1px solid rgba(30, 30, 30, 1);
+  margin-top: 35px;
+  margin-bottom: 50px;
+}
+
+.home h3 {
+  font-weight: bold;
+}
+
+div.thumbnail .home-images {
+  height: 200px;
+  border-radius: 4px;
+}
+
+div.caption {
+  background-color: rgba(30, 30, 30, 1);
+  border-radius: 0 0 4px 4px;
+}
+
+div.caption h4 {
+  color: white;
+}
+
+div.row.region {
   margin-bottom: 20px;
 }
 
-.space {
-  margin-top: 20px;
+.dropdown-item {
+  margin: 10px 10px;
+  display: block;
+  font-size: 15px;
 }
 
 .glyphicon-plus {
@@ -148,19 +152,167 @@ body {
   font-size: 15px;
 }
 
-#index-images {
-    width: 100%;
-    height: 200px;
+label {
+  font-size: 20px;
+  margin-right: 30px;
 }
 
-#delete-form {
+
+
+/********************/
+/*show hike*/
+/*******************/
+.show-hike {
+  margin-left: 15px;
+}
+
+.lead {
+  color: rgba(30, 30, 30, 1);
+}
+
+iframe {
+  border-radius: 4px;
+}
+
+.map {
+  margin: 20px auto;
+}
+
+.show-hike .thumbnail img {
+    width: 100%;
+    height: 600px;
+    border-radius: 4px 4px 0 0;
+}
+
+.show-hike div.list-group {
+  border: none;
+  border-radius: 4px;
+}
+
+.show-hike div.list-group li.list-group-item {
+  background-color: rgba(30, 30, 30, 1);
+  color: white;
+  border: 1px solid rgba(30, 30, 30, 1);
+}
+
+.show-hike div.list-group .list-group-item:first-child {
+  border-radius: 4px 4px 0 0;
+}
+
+.show-hike div.list-group .list-group-item:last-child {
+  border-radius: 0 0 4px 4px;
+}
+
+.show-hike .thumbnail .caption-full {
+    padding: 25px;
+}
+
+.delete-form {
     display: inline;
 }
 
-#back-hikes {
-    margin-top: 20px;
+a.back-hikes {
+    color: rgba(30, 30, 30, 1);
 }
 
-#new-hike-btn {
-  width: 225px;
+.well {
+  background-color: rgba(30, 30, 30, 1);
+  border: none;
+  color: white;
+}
+
+/************/
+/*hike-forms*/
+/************/
+.hike-form {
+  width: 500px;
+  margin: 25px auto;
+  background-color: rgba(30, 30, 30, 1);
+  padding: 10px 20px;
+  border-radius: 4px;
+}
+
+.hike-form-heading {
+  color: white;
+  margin: 15px auto;
+  text-align: center;
+}
+
+.hike-form h4 {
+  color: white;
+  font-size: 20px;
+}
+
+.hike-form .form-heading {
+  font-size: 20px;
+  color: white;
+}
+
+.hike-form .form-group {
+  margin-top: 15px;
+}
+
+.hike-form input {
+  line-height: 40px;
+  height: 40px;
+  font-size: 20px;
+}
+
+.hike-form label {
+  color: white;
+  font-size: 20px;
+}
+
+.hike-form .form-check-input {
+  vertical-align: middle;
+  padding: 0;
+  margin: 0;
+}
+
+.hike-form textarea {
+  height: 100px;
+  font-size: 20px;
+  max-width: 100%;
+}
+
+.hike-form select.form-control {
+  height: 40px;
+  font-size: 20px;
+}
+
+/****************/
+/*login-register*/
+/****************/
+.login-signup-form {
+  width: 500px;
+  background-color: rgba(30, 30, 30, 1);
+  border-radius: 4px;
+  margin: 25px auto;
+  padding: 10px 20px;
+}
+
+.login-signup-form-heading  {
+  margin: 15px auto;
+  text-align: center;
+}
+
+/****************/
+/*comment-forms*/
+/****************/
+.comment-form {
+  width: 500px;
+  margin: 25px auto;
+  background-color: rgba(30, 30, 30, 1);
+  padding: 10px 20px;
+  border-radius: 4px;
+}
+
+.comment-form textarea {
+  height: 100px;
+  font-size: 20px;
+  max-width: 100%;
+}
+.comment-form-heading {
+  margin: 15px auto;
+  text-align: center;
 }

@@ -2,20 +2,37 @@
 <html>
     <head>
         <title>BestHikes BC</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/stylesheets/main.css">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="/stylesheets/main.css" rel="stylesheet">
     </head>
     <body>
-        <nav class="navbar navbar-default navbar-static-top">
+        <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="/hikes">BestHikes BC</a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/hikes/new">
+                        Add new hike
+                        <span class="glyphicon glyphicon-plus"></span>
+                        </a>
+                        <li  class="regions-dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Regions <span class="caret"></span></a>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="/hikes#VancouverCoast">Vancouver Coast & Mountains</a>
+                              <a class="dropdown-item" href="/hikes#VancouverIsland">Vancouver Island</a>
+                              <a class="dropdown-item" href="/hikes#ThompsonOkanagan">Thompson Okanagan</a>
+                              <a class="dropdown-item" href="/hikes#CaribooChilcotin">Cariboo Chilcotin Coast</a>
+                              <a class="dropdown-item" href="/hikes#KootenayRockies">Kootenay Rockies</a>
+                              <a class="dropdown-item" href="/hikes#NorthernBC">Northern BC</a>
+                            </div>
+                        </li>
                         <% if(!currentUser){ %>
                         <li><a href="/login">Login</a></li>
-                        <li><a href="/register">Sign-Up</a></li>
+                        <li><a href="/register">Sign Up</a></li>
                         <% } else { %>
                         <li><a>Signed in as <%= currentUser.username %></a></li>
                         <li><a href="/logout">Logout</a></li>

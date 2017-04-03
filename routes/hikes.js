@@ -12,7 +12,6 @@ router.get("/", function(req, res){
             res.render("hikes/index", {hikes: allHikes});
         }
     });
-
 });
 
 // routes post request for creating new campground
@@ -23,6 +22,7 @@ router.post("/", middleware.isLoggedIn, function(req, res){
     var desc = req.body.description;
     var dir = req.body.directions;
     var location = req.body.location;
+    var region = req.body.region;
     var amen = req.body.amenities;
     var length = req.body.length;
     var elevation = req.body.elevation;
@@ -31,7 +31,7 @@ router.post("/", middleware.isLoggedIn, function(req, res){
         id: req.user._id,
         username: req.user.username
     }
-    var newHike = {name: name, image: image, duration: duration, description: desc, directions: dir, location: location, amenities: amen, length: length, elevation: elevation, difficulty: difficulty, author: author};
+    var newHike = {name: name, image: image, duration: duration, description: desc, directions: dir, location: location, region: region, amenities: amen, length: length, elevation: elevation, difficulty: difficulty, author: author};
     req.body.hike.body = req.sanitize(req.body.hike.body);
     Hike.create(newHike, function(err, newlyCreated){
         if (err){

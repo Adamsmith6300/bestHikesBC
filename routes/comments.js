@@ -47,7 +47,14 @@ router.get("/:comment_id/edit", middleware.checkCommentOwnership, function (req,
         if(err){
             res.redirect("back");
         } else {
-            res.render("comments/edit", {comment: foundComment, hike_id: req.params.id});
+          Hike.findById(req.params.id, function(err, foundHike){
+            if(err){
+              res.redirect("back");
+            } else {
+              res.render("comments/edit", {comment: foundComment, hike_id: req.params.id, hike: foundHike});
+            }
+          });
+
         }
     });
 });

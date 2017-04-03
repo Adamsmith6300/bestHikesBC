@@ -6,6 +6,7 @@ var hikeSchema = new mongoose.Schema({
     description: String,
     directions: String,
     location: String,
+    region: String,
     amenities: String,
     duration: Number,
     length: Number,
@@ -23,9 +24,7 @@ var hikeSchema = new mongoose.Schema({
             type: mongoose.Schema.Types.ObjectId,
             ref: "Comment"
         }
-
-
-    ]
+      ]
 });
 
 module.exports = mongoose.model("Hike", hikeSchema);

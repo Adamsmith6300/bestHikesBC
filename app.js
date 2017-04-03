@@ -11,7 +11,7 @@ var express           = require("express"),
     Comment           = require("./models/comment"),
     User              = require("./models/user"),
     methodOverride    = require("method-override");
-    // seedDB          = require("./seeds");
+    seedDB          = require("./seeds");
 
 var commentRoutes       = require("./routes/comments"),
     hikeRoutes          = require("./routes/hikes"),
@@ -27,7 +27,7 @@ app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 app.use(expressSanitizer());
 app.use(flash());
-// seedDB();
+seedDB();
 
 // PASSPORT CONFIG
 app.use(require("express-session")({
